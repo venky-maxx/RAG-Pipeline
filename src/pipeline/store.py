@@ -38,7 +38,6 @@ class DocumentIngestionPipeline:
         print(f"embedding file....")
         embedder = ModelSelector()
         embeddings = await embedder.get_embedded(chunks)
-        
         return embeddings
     
 
