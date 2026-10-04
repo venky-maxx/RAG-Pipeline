@@ -25,36 +25,32 @@ class OpenAIEmbedding(BaseEmbedding):
             base_url=settings.OPENAI_API_BASE_URL
             )
         
-    async def embeddings(self, chunks: list[str]) -> list[list[float]]:
-        embeddings_list = []
-        for chunk in chunks:
-            response = await self.client.embeddings.create(input = chunk, model = settings.OPENAI_EMBEDDING_MODEL)
-            embeddings_list.append(response.data[0].embedding)
-        return embeddings_list
+    async def embeddings(self, chunk: list[str]) -> list[list[float]]:
+        response = await self.client.embeddings.create(
+            input = chunk,
+              model = settings.OPENAI_EMBEDDING_MODEL)
+        return response.data[0].embedding
 
 class OllamaEmbedding(BaseEmbedding):
 
     def __init__(self):
         pass
         
-    async def embeddings(self, chunks: list[str]) -> list[list[float]]:
-        embeddings_list = []
-        for chunk in chunks:
-            response = ollama.embeddings(model=settings.OLLAMA_EMBEDDING_MODEL, input=chunk)
-            embeddings_list.append(response)
-        return embeddings_list
+    async def embeddings(self, chunk: list[str]) -> list[list[float]]:
+        response = ollama.embeddings(model=settings.OLLAMA_EMBEDDING_MODEL, input=chunk)
+        return response['embeddings'][0]
 
 
 class ModelSelector:
     
-    def __init__(self):
-        self.model_source = settings.EMBEDDING_MODEL_SOURCE.lower()
-        if self.model_source == "openai":
-            self.model = OpenAIEmbedding()
-        elif self.model_source == "ollama":
-            self.model = OllamaEmbedding()
-        else:
-            raise ValueError(f"Unsupported embedding model source: {self.model_source}")
-
-    async def get_embedded(self, chunks: list[str]) -> list[list[float]]:
-        return await self.model.embeddings(chunks)
+    @staticmethod
+    async def get_embedded(chunks: list[str]) -> list[list[float]]:
+        if settings.EMBEDDING_MODEL_SOURCE == "openai":
+            model = OpenAIEmbedding()
+        elif settings.EMBEDDING_MODEL_SOURCE == "ollama":
+            model = OllamaEmbedding()
+        embedding_vectors = []
+        for chunk in chunks:
+            embedding = await model.embeddings(chunk)
+            embedding_vectors.append(embedding)
+        return embedding_vectors
