@@ -1,0 +1,53 @@
+timestamp : 2026-11-16 18:59:03,822, log level: INFO, logger : AIRag, message: Checking
+timestamp : 2026-11-16 18:59:05,486, log level: INFO, logger : AIRag, message: Checking
+2026-11-16 22:23:54,171 - INFO - AIRag - Checking
+2026-11-16 22:24:23,957 - AIRag - INFO - Checking
+2026-11-16 22:24:36,369 - AIRAG - INFO - Checking
+2026-11-16 22:25:40,393 - AIRAG - INFO - Checking - temp
+2026-11-17 10:30:33,199 - AIRAG - INFO - Checking - temp
+2026-11-17 10:33:03,869 - AIRAG - INFO - Checking - temp
+2026-11-17 10:33:12,811 - AIRAG - INFO - Checking - temp
+2026-11-17 15:10:53,698 - AIRAG - INFO - Vector stored - store
+2026-11-17 15:10:55,531 - AIRAG - INFO - Vector stored - store
+2026-11-17 15:11:12,829 - AIRAG - INFO - Vector stored - store
+2026-11-17 15:11:14,668 - AIRAG - INFO - Vector stored - store
+2026-11-17 15:15:53,454 - AIRAG - INFO - Ingesting file.... - store
+2026-11-17 15:15:53,460 - AIRAG - INFO - Chunking file.... - store
+2026-11-17 15:15:53,460 - AIRAG - INFO - embedding file.... - store
+2026-11-17 15:15:55,681 - AIRAG - INFO - Vector store initialized.... - store
+2026-11-17 15:15:55,688 - AIRAG - INFO - Vector stored - store
+2026-11-17 15:15:55,688 - AIRAG - INFO - Ingesting file.... - store
+2026-11-17 15:15:55,689 - AIRAG - INFO - Chunking file.... - store
+2026-11-17 15:15:55,689 - AIRAG - INFO - embedding file.... - store
+2026-11-17 15:15:57,568 - AIRAG - INFO - Vector store initialized.... - store
+2026-11-17 15:15:57,592 - AIRAG - INFO - Vector stored - store
+2026-11-17 15:18:03,961 - AIRAG - INFO - Ingesting file.... - store
+2026-11-17 15:18:03,966 - AIRAG - INFO - Chunking file.... - store
+2026-11-17 15:18:03,966 - AIRAG - INFO - Total Chunks created: 2 - chunking
+2026-11-17 15:18:03,966 - AIRAG - INFO - embedding file.... - store
+2026-11-17 15:18:06,116 - AIRAG - INFO - Vector store initialized.... - store
+2026-11-17 15:18:06,135 - AIRAG - INFO - Vector stored - store
+2026-11-17 15:18:06,135 - AIRAG - INFO - Ingesting file.... - store
+2026-11-17 15:18:06,137 - AIRAG - INFO - Chunking file.... - store
+2026-11-17 15:18:06,137 - AIRAG - INFO - Total Chunks created: 2 - chunking
+2026-11-17 15:18:06,137 - AIRAG - INFO - embedding file.... - store
+2026-11-17 15:18:07,960 - AIRAG - INFO - Vector store initialized.... - store
+2026-11-17 15:18:07,977 - AIRAG - INFO - Vector stored - store
+2026-11-17 15:19:13,298 - AIRAG - INFO - Ingesting file.... - store
+2026-11-17 15:19:13,303 - AIRAG - INFO - Chunking file.... - store
+2026-11-17 15:19:13,303 - AIRAG - INFO - Total Chunks created: 2 - chunking
+2026-11-17 15:19:13,303 - AIRAG - INFO - embedding file.... - store
+2026-11-17 15:19:16,361 - AIRAG - INFO - Vector store initialized.... - store
+2026-11-17 15:19:16,378 - AIRAG - INFO - Vector stored - store
+2026-11-17 15:19:16,379 - AIRAG - INFO - Ingesting file.... - store
+2026-11-17 15:19:16,380 - AIRAG - INFO - Chunking file.... - store
+2026-11-17 15:19:16,380 - AIRAG - INFO - Total Chunks created: 2 - chunking
+2026-11-17 15:19:16,380 - AIRAG - INFO - embedding file.... - store
+2026-11-17 15:19:18,087 - AIRAG - INFO - Vector store initialized.... - store
+2026-11-17 15:19:18,105 - AIRAG - INFO - Vector stored - store
+2026-11-17 15:50:49,516 - AIRAG - INFO - Ingesting file.... - store
+2026-11-17 15:50:49,524 - AIRAG - INFO - Chunking file.... - store
+2026-11-17 15:50:49,524 - AIRAG - INFO - Total Chunks created: 2 - chunking
+2026-11-17 15:50:49,525 - AIRAG - INFO - embedding file.... - store
+2026-11-17 15:50:51,714 - AIRAG - INFO - Vector store initialized.... - store
+2026-11-17 15:50:51,722 - AIRAG - INFO - Vector stored - store

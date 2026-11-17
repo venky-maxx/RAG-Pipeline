@@ -45,6 +45,7 @@ class DocumentLoaderFactory:
     async def get_loader(file_path):
         file_path = Path(file_path)
         ext = file_path.suffix.lower()
+        print(ext)
 
         if ext == ".txt":
             txt_ldr = TextLoader()    

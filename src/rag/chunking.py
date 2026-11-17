@@ -14,6 +14,7 @@ Functions:
 """
 from abc import ABC, abstractmethod
 import asyncio
+from config.logging_config import logger
 
 
 class BaseChunker(ABC):
@@ -42,6 +43,6 @@ class SlidingWindowChunking(BaseChunker):
             if end == text_size:
                 break
             start += (self.chunk_size - self.overlap)
-
+        logger.info(f"Total Chunks created: {len(chunks)}")
         return chunks
 

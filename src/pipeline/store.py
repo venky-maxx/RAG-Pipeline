@@ -14,11 +14,15 @@ Methods:
 """
 
 import asyncio
+import json
 from rag.document_loader import DocumentLoaderFactory
 from rag.chunking import SlidingWindowChunking
 from config.settings import settings
 from rag.embeddings import ModelSelector
 from pathlib import Path
+import os
+from rag.vector_store import JsonVectorStore
+from config.logging_config import logger
 
 class DocumentIngestionPipeline:
 
@@ -28,31 +32,30 @@ class DocumentIngestionPipeline:
     async def ingest_file(self, file_path: str):
         file_path = Path(file_path)
         
-        print(f"Ingesting file....")
+        logger.info(f"Ingesting file....")
         get_content = await DocumentLoaderFactory.get_loader(file_path)
 
-        print(f"Chunking file....")
+        logger.info(f"Chunking file....")
         chunker = SlidingWindowChunking(chunk_size = settings.CHUNK_SIZE, overlap = settings.CHUNK_OVERLAP)
         chunks = await chunker.chunk(text = get_content)
         
-        print(f"embedding file....")
-        
+        logger.info(f"embedding file....")
         embeddings = await ModelSelector.get_embedded(chunks)
-        return embeddings
-    
 
+        logger.info(f"Vector store initialized....")
+        vector_store = JsonVectorStore(settings.VECTOR_STORE_PATH, chunks, embeddings, file_path)
+        vector_store.store()
+        logger.info("Vector stored")
+
+        
     async def ingest_directory(self, files_path: str) -> list[str]:
         files_path = Path(files_path)
-        content_list = []
         files = list(files_path.rglob("*"))  # Recursively find all files
         
         for file in files:
             if file.is_file():
-                content = await self.ingest_file(file)
-                content_list.append(content)
-        
-        return content_list
-
+                await self.ingest_file(file)
+                
 async def main():
     pipeline = DocumentIngestionPipeline()
     # Additional async operations can be added here
